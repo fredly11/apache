@@ -21,22 +21,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apache
+  name: apache-v2
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: apache
-      version: v1
+      version: v2
   template:
     metadata:
       labels:
         app: apache
-        version: v1
+        version: v2
     spec:
       serviceAccountName: apache
       containers:
-      - image: docker.io/bluefireleads/apache:latest
+      - image: docker.io/bluefireleads/apache:0.0.3
         imagePullPolicy: Always
         name: apache
         ports:
